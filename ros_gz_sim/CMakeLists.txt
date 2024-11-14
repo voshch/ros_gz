@@ -113,6 +113,19 @@ target_link_libraries(create
 )
 ament_target_dependencies(create std_msgs)
 
+add_executable(remove src/remove.cpp)
+ament_target_dependencies(remove
+  rclcpp
+  std_msgs
+)
+target_link_libraries(remove
+  gflags
+  ${GZ_TARGET_PREFIX}-math${GZ_MATH_VER}::core
+  ${GZ_TARGET_PREFIX}-msgs${GZ_MSGS_VER}::core
+  ${GZ_TARGET_PREFIX}-transport${GZ_TRANSPORT_VER}::core
+)
+ament_target_dependencies(remove std_msgs)
+
 add_library(${PROJECT_NAME} SHARED src/Stopwatch.cpp)
 ament_target_dependencies(${PROJECT_NAME}
   rclcpp
