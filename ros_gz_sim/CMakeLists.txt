@@ -157,6 +157,7 @@ install(FILES
 
 install(TARGETS
   create
+  remove
   DESTINATION lib/${PROJECT_NAME}
 )
 
